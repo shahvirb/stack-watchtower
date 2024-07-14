@@ -1,0 +1,28 @@
+services:
+  watchtower:
+    container_name: watchtower
+    # command: ["--run-once"]
+    environment:
+      REPO_PASS: ""
+      REPO_USER: ""
+      TZ: "${TZ}"
+      WATCHTOWER_CLEANUP: "true"
+      WATCHTOWER_INCLUDE_STOPPED: "false"
+      WATCHTOWER_MONITOR_ONLY: "false"
+      WATCHTOWER_NOTIFICATION_TEMPLATE: '{{range .}}{{.Message}}{{println}}{{end}}'
+      WATCHTOWER_NOTIFICATION_URL: ""
+      WATCHTOWER_NOTIFICATIONS: "shoutrrr"
+      WATCHTOWER_NOTIFICATIONS_LEVEL: "info"
+      WATCHTOWER_SCHEDULE: "0 0 4 * * *"
+      WATCHTOWER_TIMEOUT: "10s"
+    image: ghcr.io/containrrr/watchtower:latest
+    logging:
+      driver: json-file
+      options:
+        max-file: ${DOCKERLOGGING_MAXFILE}
+        max-size: ${DOCKERLOGGING_MAXSIZE}
+        labels-regex: "^.+"
+    restart: unless-stopped
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
