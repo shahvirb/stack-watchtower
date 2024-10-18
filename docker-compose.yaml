@@ -15,6 +15,7 @@ services:
       WATCHTOWER_NOTIFICATION_URL: "${WATCHTOWER_NOTIFICATION_URL}"
       WATCHTOWER_SCHEDULE: "0 0 4 * * *"
       WATCHTOWER_TIMEOUT: "10s"
+    hostname: "${HOSTNAME}"
     image: ghcr.io/containrrr/watchtower:latest
     restart: unless-stopped
     volumes:
