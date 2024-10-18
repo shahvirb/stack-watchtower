@@ -1,0 +1,1 @@
+WATCHTOWER_NOTIFICATION_URL="op://Dev - Home Lab/discord/watchtower notifications"
