@@ -16,7 +16,7 @@ services:
       WATCHTOWER_SCHEDULE: "0 0 4 * * *"
       WATCHTOWER_TIMEOUT: "10s"
     hostname: "${HOSTNAME}"
-    image: ghcr.io/containrrr/watchtower:latest
+    image: nickfedor/watchtower:latest
     restart: unless-stopped
     volumes:
       - /etc/localtime:/etc/localtime:ro
