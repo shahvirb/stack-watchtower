@@ -2,6 +2,7 @@ services:
   watchtower:
     container_name: watchtower
     # command: ["--run-once"]
+    env_file: secrets.env
     environment:
       REPO_PASS: ""
       REPO_USER: ""
@@ -12,7 +13,6 @@ services:
       WATCHTOWER_NOTIFICATION_TEMPLATE: '{{range .}}{{.Message}}{{println}}{{end}}'
       WATCHTOWER_NOTIFICATIONS: "shoutrrr"
       WATCHTOWER_NOTIFICATIONS_LEVEL: "info"
-      WATCHTOWER_NOTIFICATION_URL: "${WATCHTOWER_NOTIFICATION_URL}"
       WATCHTOWER_SCHEDULE: "0 0 4 * * *"
       WATCHTOWER_TIMEOUT: "10s"
     hostname: "${HOSTNAME}"

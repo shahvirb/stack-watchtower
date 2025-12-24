@@ -1,1 +1,0 @@
-Be sure to decrypt 1Password secret when running docker compose up: ```op-unpack.sh -- docker compose up -d```
