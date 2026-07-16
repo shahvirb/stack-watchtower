@@ -13,7 +13,7 @@ services:
       WATCHTOWER_NOTIFICATION_TEMPLATE: '{{range .}}{{.Message}}{{println}}{{end}}'
       WATCHTOWER_NOTIFICATIONS: "shoutrrr"
       WATCHTOWER_NOTIFICATIONS_LEVEL: "info"
-      WATCHTOWER_SCHEDULE: "0 0 4 * * *"
+      WATCHTOWER_SCHEDULE: "0 0 6 * * *"
       WATCHTOWER_TIMEOUT: "10s"
     hostname: "${HOSTNAME}"
     image: nickfedor/watchtower:latest
